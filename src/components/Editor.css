@@ -1,0 +1,180 @@
+
+ .editor {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100vh;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.editor.dark {
+  background-color: #2e2e2e;
+  color: #ffffff;
+  border-color: #444;
+}
+
+.editor-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.toolbar-btn {
+  padding: 8px 12px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+.toolbar-btn:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.toolbar-btn.active{
+  background-color: #8b9daf;
+  color: #ffffff;
+}
+
+.text-style-controls,
+.text-alignment-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.font-size-select {
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.editor-textarea {
+  width: 100%;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.editor-textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.editor.dark .editor-textarea {
+  background-color: #444;
+  color: #ffffff;
+  border-color: #555;
+}
+
+.editor.dark .editor-textarea:focus {
+  border-color: #00aaff;
+  box-shadow: 0 0 5px rgba(0, 170, 255, 0.5);
+}
+
+.editor-container {
+  position: relative;
+ display: flex;
+ flex-wrap: wrap;
+ 
+}
+
+.editor-content {
+  position: relative;
+  height: 90%;
+  
+}
+
+.highlight-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-size: 16px;
+  line-height: 1.5;
+  color: transparent;
+  z-index: 0;
+}
+.error-highlight {
+  background-color: rgba(255, 0, 0, 0.3);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.highlight-layer .highlight {
+  background-color: yellow;
+  color: black;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+
+.tooltip {
+  position: absolute;
+  background-color: #333;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+
+@media (max-width: 768px) {
+  .editor {
+    padding: 15px;
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .editor-toolbar {
+    width: 20%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .editor-container{
+    width: 70%;
+    flex-wrap: wrap;
+  }
+
+  .toolbar-btn,
+  .font-size-select {
+    width: 100%;
+  }
+
+  .text-style-controls,
+  .text-alignment-controls {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .editor-textarea {
+    font-size: 14px;
+  }
+
+  .toolbar-btn {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .font-size-select {
+    font-size: 12px;
+  }
+}
